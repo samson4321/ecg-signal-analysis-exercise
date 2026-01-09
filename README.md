@@ -1,30 +1,30 @@
 # ECG Signal Analysis Before and After Exercise
 
 ## Overview
-This project analyzes electrocardiogram (ECG) signals recorded at rest and immediately after aerobic exercise to study short-term cardiovascular responses. Python-based signal processing techniques are used to filter ECG signals, detect R-peaks, extract RR intervals, compute heart rate (HR), and evaluate heart rate variability (SDNN).
+This project presents a Python-based biomedical signal processing analysis of electrocardiogram (ECG) recordings acquired at rest and immediately after aerobic exercise. The work was conducted as part of my MSc training in Biomedical Engineering to strengthen practical understanding of ECG preprocessing, feature extraction, and physiological interpretation.
 
-The project demonstrates a full ECG analysis pipeline, including data preprocessing, feature extraction, visualization, and comparison of resting versus post-exercise conditions.
+The analysis follows a complete ECG processing pipeline, including data cleaning, filtering, R-peak detection, heart rate (HR) calculation, and heart rate variability (HRV) assessment (SDNN), with a comparison between resting and post-exercise conditions.
 
 ---
 
 ## Aim
-To investigate the effect of a 20-minute jogging exercise on ECG-derived parameters by comparing recordings acquired at rest and immediately after exercise.
+To study short-term cardiovascular responses to aerobic exercise by comparing ECG-derived parameters recorded at rest and immediately after a 20-minute jogging session.
 
 ---
 
 ## Objectives
-- Record a 60-second resting ECG using a three-electrode limb configuration  
-- Record a 60-second post-exercise ECG after 20 minutes of jogging  
-- Preprocess ECG signals (data cleaning, band-pass filtering, notch filtering)  
-- Detect R-peaks and compute RR intervals and heart rate  
-- Compare resting and post-exercise ECG features using descriptive statistics  
+- Acquire 60-second ECG recordings at rest and post-exercise  
+- Preprocess ECG signals using band-pass and notch filtering  
+- Detect R-peaks and extract RR intervals  
+- Compute heart rate and short-term HRV (SDNN)  
+- Compare ECG features between resting and post-exercise conditions  
 
 ---
 
 ## Data Description
 - **Sampling frequency:** 1000 Hz  
 - **Recording duration:** 60 seconds per condition  
-- **Electrode configuration:** Right arm, left arm, left leg reference (Lead I equivalent)  
+- **Electrode configuration:** Three-electrode limb setup (Lead I equivalent)  
 - **Data format:** TXT files  
 
 ### ECG Files
@@ -34,53 +34,56 @@ To investigate the effect of a 20-minute jogging exercise on ECG-derived paramet
 ---
 
 ## Signal Processing Pipeline
-1. **Data Import**
+1. **Data Import & Cleaning**
    - Conversion of European decimal format (comma to dot)
-   - Import as NumPy arrays
+   - Import into NumPy arrays for processing
 
 2. **Filtering**
-   - Band-pass filter (0.5–40 Hz) to remove baseline drift and high-frequency noise
-   - 50 Hz notch filter to remove power-line interference
-   - Zero-phase filtering to preserve waveform morphology
+   - Band-pass filter (0.5–40 Hz) to remove baseline drift and high-frequency noise  
+   - 50 Hz notch filter to suppress power-line interference  
+   - Zero-phase filtering to preserve ECG waveform morphology  
 
 3. **Feature Extraction**
-   - R-peak detection using a QRS enhancement approach
-   - RR interval calculation
-   - Heart rate calculation using:
+   - R-peak detection using a QRS enhancement approach  
+   - RR interval computation  
+   - Heart rate calculation:
      ```
      HR = 60 / RR (seconds)
      ```
-   - Heart rate variability (SDNN)
+   - Heart rate variability assessment using SDNN  
 
 4. **Visualization**
-   - Raw vs filtered ECG signals
-   - R-peak detection overlays
-   - Annotated P-QRS-T components and RR intervals
+   - Raw vs filtered ECG signals  
+   - R-peak detection overlays  
+   - Visualization of RR intervals and ECG morphology  
 
 ---
 
 ## Results Summary
-- Heart rate increased after exercise
-- RR intervals shortened post-exercise
-- SDNN decreased, indicating reduced short-term heart rate variability
-- Results are consistent with normal physiological responses to acute aerobic exercise
+- Increased heart rate after exercise  
+- Shortened RR intervals post-exercise  
+- Reduced SDNN, indicating decreased short-term HRV  
+- Observed trends are consistent with expected physiological responses to acute aerobic exercise  
 
 ---
 
 ## Limitations
-- Single subject (n = 1)
-- Short recording duration (60 seconds)
-- Results are descriptive and not generalizable to a population
+- Single-subject analysis (n = 1)  
+- Short recording duration  
+- Results are descriptive and not intended for population-level inference  
 
 ---
 
 ## Technologies Used
-- Python
-- NumPy
-- SciPy
-- Matplotlib
-- Pandas
+- Python  
+- NumPy  
+- SciPy  
+- Pandas  
+- Matplotlib  
 
 ---
 
-
+## Learning Outcomes
+- Practical implementation of ECG preprocessing and filtering techniques  
+- Hands-on experience with R-peak detection and HR/HRV analysis  
+- Improved understanding of physiological signal interpretation in response to exercise  
